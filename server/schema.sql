@@ -34,8 +34,8 @@ CREATE TABLE `Messages` (
   `room_id` INTEGER NOT NULL,
   `user_id` INTEGER NOT NULL,
   `text` VARCHAR(255) NOT NULL,
-  `created_at` DATETIME NOT NULL,
-  `updated_at` DATETIME NOT NULL,
+  `created_at` DATETIME,
+  `updated_at` DATETIME,
   PRIMARY KEY (`id`)
 ) COMMENT 'Storing all received messages from client.';
 
@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `Users`;
 
 CREATE TABLE `Users` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL,
+  `name` VARCHAR(20) NOT NULL UNIQUE,
   PRIMARY KEY (`id`)
 );
 
@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS `Rooms`;
 
 CREATE TABLE `Rooms` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL,
+  `name` VARCHAR(20) NOT NULL UNIQUE,
   PRIMARY KEY (`id`)
 );
 
